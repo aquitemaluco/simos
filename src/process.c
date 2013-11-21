@@ -35,6 +35,11 @@ simos_process_t *simos_process_create(int pid, size_t required_execution_time,
 	proc->turnaround_time = required_execution_time;
 	proc->memory_pointer = -1;
 
+	//used by shcedule
+	proc->quantum = 1;
+	proc->priority = 0;
+	proc->running_time = 0;
+	
 	return proc;
 }
 
@@ -49,7 +54,3 @@ simos_process_t *simos_node_to_process(simos_list_node_t *node)
 {
 	return ((simos_process_t *) node->data);
 }
-
-
-
-
